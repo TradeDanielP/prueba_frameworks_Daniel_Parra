@@ -46,7 +46,18 @@ public class StudentService implements IStudentService{
 
     @Override
     public StudentResponse update(StudentRequest request, Integer id) {
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+     
+        Student student = this.find(id);
+
+        ClassEntity classEntity = this.classRepository.findById(request.getClassId())
+            .orElseThrow(() -> new BadRequestException("ther is not classes with this is"));
+
+        student = this.requestToStudent(request);
+
+        student.setClassEntity(classEntity);
+
+        return this.entityToResp(this.studentRepository.save(student));
+
     }
 
     @Override
