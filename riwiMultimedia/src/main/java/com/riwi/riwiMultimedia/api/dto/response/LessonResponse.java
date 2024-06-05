@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class LessonResponse {
     
-    private int id;
+    private Integer id;
     private String title;
     private List<MultimediaResponse> content;
     private LocalDateTime createdAt;

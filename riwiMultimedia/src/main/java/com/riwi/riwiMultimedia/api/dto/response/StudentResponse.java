@@ -13,11 +13,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StudentResponse {
 
-    private int id;
+    private Integer id;
     private String name;
     private String email;
     private LocalDateTime createdAt;
     private boolean active;
-    private int classId;
+    private Integer classId;
     
 }

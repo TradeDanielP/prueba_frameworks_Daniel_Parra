@@ -29,7 +29,7 @@ public class Lesson {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(length = 255, nullable = false)
     private String title;

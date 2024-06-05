@@ -31,6 +31,6 @@ public class MultimediaRequest {
 
      @NotNull(message = "Lesson id is required")
     @Min(value = 1, message = "Lesson id must be greater than 0")
-    private int lessonId;
+    private Integer lessonId;
 
 }

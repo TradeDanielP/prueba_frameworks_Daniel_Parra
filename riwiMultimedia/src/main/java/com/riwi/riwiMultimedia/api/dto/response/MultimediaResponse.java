@@ -15,11 +15,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MultimediaResponse {
     
-    private int id;
+    private Integer id;
     private typeEnum type;
     private String url;
     private LocalDateTime createdAt;
     private boolean active;
-    private int lessonId;
+    private Integer lessonId;
 
 }

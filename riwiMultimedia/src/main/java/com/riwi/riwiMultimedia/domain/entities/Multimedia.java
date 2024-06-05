@@ -28,7 +28,7 @@ public class Multimedia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Enumerated(EnumType.STRING)
     private typeEnum type;

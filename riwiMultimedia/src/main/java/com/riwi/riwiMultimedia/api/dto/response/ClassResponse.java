@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ClassResponse {
     
-    private int id;
+    private Integer id;
 
     private String name;
 

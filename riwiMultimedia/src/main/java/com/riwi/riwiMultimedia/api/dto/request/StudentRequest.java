@@ -33,6 +33,6 @@ public class StudentRequest {
 
     @NotNull(message = "Class id is required")
     @Min(value = 1, message = "Class id must be greater than 0")
-    private int classId;
+    private Integer classId;
 
 }
