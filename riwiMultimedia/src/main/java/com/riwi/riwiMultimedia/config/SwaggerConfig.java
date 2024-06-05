@@ -15,6 +15,6 @@ import io.swagger.v3.oas.annotations.servers.Server;
                         description = "Local",
                         url = "http://localhost:8080/api/v1")
         })
-public class OpenApiConfig {
+public class SwaggerConfig {
 
 }
