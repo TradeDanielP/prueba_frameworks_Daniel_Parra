@@ -6,6 +6,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,5 +49,15 @@ public class StudentController {
     public ResponseEntity<StudentResponse> get(@PathVariable Integer id) {
         return ResponseEntity.ok(this.service.get(id));
     }
+
+
+ @Operation(summary = "list a student by id", description = "the id is needed")
+ @PutMapping(path = "/${id}")
+ public ResponseEntity<StudentResponse> update(
+    @Validated @RequestBody StudentRequest request,
+    @PathVariable Integer id){
+        return ResponseEntity.ok(this.service.update(request, id));
+    }
+
 
 }
