@@ -3,6 +3,7 @@ package com.riwi.riwiMultimedia.infrastructure.services;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.riwi.riwiMultimedia.api.dto.request.StudentRequest;
@@ -55,7 +56,14 @@ public class StudentService implements IStudentService{
 
     @Override
     public Page<StudentResponse> getAll(int page, int size) {
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        
+        if (page < 0) page = 0;
+
+        PageRequest pagination = PageRequest.of(page, size);
+
+        return this.studentRepository.findAll(pagination)
+                .map(this::entityToResp);
+
     }
 
     private StudentResponse entityToResp(Student entity){
