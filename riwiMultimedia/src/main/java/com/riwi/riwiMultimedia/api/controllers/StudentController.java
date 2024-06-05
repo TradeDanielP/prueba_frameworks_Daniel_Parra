@@ -2,6 +2,8 @@ package com.riwi.riwiMultimedia.api.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +29,12 @@ public class StudentController {
     @PostMapping
     public ResponseEntity<StudentResponse> create(@Validated @RequestBody StudentRequest request){
         return ResponseEntity.ok(this.service.create(request));
+    }
+
+    @Operation(summary = "list a student by id", description = "the id is needed")
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<StudentResponse> get(@PathVariable Integer id) {
+        return ResponseEntity.ok(this.service.get(id));
     }
 
 }
