@@ -41,7 +41,7 @@ public class StudentService implements IStudentService{
 
     @Override
     public StudentResponse get(Integer id) {
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
+        return this.entityToResp(this.find(id));
     }
 
     @Override
@@ -95,5 +95,9 @@ public class StudentService implements IStudentService{
                 .build();
     }
 
-    
+    private Student find(Integer id){
+        return this.studentRepository.findById(id)
+            .orElseThrow(() -> new BadRequestException("there is not students with this id"));
+    }
+
 }
