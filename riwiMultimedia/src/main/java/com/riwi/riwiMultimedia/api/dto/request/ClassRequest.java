@@ -1,8 +1,11 @@
 package com.riwi.riwiMultimedia.api.dto.request;
 
 
+import java.time.LocalDateTime;
+
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,8 +26,11 @@ public class ClassRequest {
     @Size(min = 20, max = 800, message = "description must be greater than 20 characters and lower than 800 characters")
     private String description;
 
-    @NotBlank(message = "active must not be null")
-    @Pattern(regexp = "true|false", message = "The active must be true or false")
+    @NotNull(message = "active must not be null")
     private boolean active;
+
+    @NotNull(message = "date is required")
+    @FutureOrPresent(message = "It is not possible to enter a date later than the current date.")
+    private LocalDateTime createdAt;
 
 }
