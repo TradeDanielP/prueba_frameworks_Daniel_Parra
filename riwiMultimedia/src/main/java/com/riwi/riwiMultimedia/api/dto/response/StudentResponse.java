@@ -2,6 +2,8 @@ package com.riwi.riwiMultimedia.api.dto.response;
 
 import java.time.LocalDateTime;
 
+import com.riwi.riwiMultimedia.domain.entities.ClassEntity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +20,6 @@ public class StudentResponse {
     private String email;
     private LocalDateTime createdAt;
     private boolean active;
-    private Integer classId;
+    private ClassEntity classId;
     
 }
